@@ -1,0 +1,20 @@
+<%= link_to "Home", root_url %>
+
+<h1>Orders#index</h1>
+<% if @orders.any? %>
+  <% @orders.each do |order| %>
+    <div class="col-xs-12">
+    <div class="col-xs-1"><%= order.id %></div>
+    <% order.order_items.each do |oi| %>
+      <div class="col-xs-3"><%= oi.item.name %></div>
+      <% if oi.participants.any? %>
+        <% oi.participants.each do |person| %>
+          <div class="col-xs-2"><%= person.name %></div>
+        <% end %>
+      <% end %>    
+    <% end %>
+  </div>
+  <% end %>
+<% else %>
+  <h2>There are no orders</h2>
+<% end %>

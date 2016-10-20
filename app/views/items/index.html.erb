@@ -1,0 +1,16 @@
+<div class="col-xs-12 top-nav">
+  <div class="col-xs-3"><%= link_to "Add new Item", new_item_path %></div>
+  <div class="col-xs-3"><%= link_to "View All Orders", orders_path %></div>
+</div>
+
+<body>
+<% if @items.any? %>
+  <% @items.each do |item| %>
+    <div class="col-xs-12">
+      <div class="col-xs-3 item-name"><%= item.name %></div> <div class="col-xs-2"><%= link_to "learn more", item %></div> <div class="col-xs-2"><%= link_to "edit", edit_item_path(item) %></div>
+    </div>
+  <% end %>
+<% else %>
+
+<% end %>
+</body>
